@@ -4,6 +4,7 @@ import {View } from 'react-native';
 
 const Bird = ({birdBottom, birdLeft}) => {
     const birdWidth = 50
+    const birdHeight = 60
     return(
     <View style={{
         position: 'absolute',
@@ -11,7 +12,7 @@ const Bird = ({birdBottom, birdLeft}) => {
         width: birdWidth,
         height: 60,
         left: birdLeft - (birdWidth/2),
-        bottom: birdBottom
+        bottom: birdBottom - (birdHeight/2)
     }}/>
     )
 }

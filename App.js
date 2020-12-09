@@ -23,7 +23,7 @@ export default function App() {
 
     }
  }, [birdBottom])
-
+console.log(birdBottom)
 
   return (
     <View style={styles.container}>
