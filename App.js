@@ -8,10 +8,10 @@ export default function App() {
   const screenHeight = Dimensions.get("screen").height
   const birdLeft = screenWidth / 2
   const [birdBottom, setbirdBottom] = useState(screenHeight/2)
-  const [obstaclesLeft, setobstaclesLeft] = useState(screenWidth)
+  const [obstaclesLeft, setObstaclesLeft] = useState(screenWidth)
   const obstacleWidth = 60
   const obstacleHeight = 300
-  const gap = 50
+  const gap = 200
   const gravity = 3
   let gameTimerId
   let obstaclesLeftTimerId
@@ -33,12 +33,13 @@ console.log(birdBottom)
 useEffect(() => {
   if (obstaclesLeft > -obstacleWidth) {
     obstaclesLeftTimerId = setInterval(() => {
-      setobstaclesLeft(obstaclesLeft => obstaclesLeft - 5)
+      setObstaclesLeft(obstaclesLeft => obstaclesLeft - 5)
     }, 30)
-  }
-
-  return () => {
-    clearInterval(obstaclesLeftTimerId)
+    return () => {
+      clearInterval(obstaclesLeftTimerId)
+    }
+  } else{
+    setObstaclesLeft(screenWidth)
   }
 
 }, [obstaclesLeft])
