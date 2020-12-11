@@ -66,6 +66,30 @@ useEffect(() => {
   }
 }, [obstaclesLeftTwo])
 
+// collision detection
+
+useEffect(() => {
+  console.log(obstaclesLeft)
+  console.log(screenWidth/2)
+  console.log(obstaclesLeft > screenWidth/2)
+  if (
+    ((birdBottom < (obstaclesNegHeight + obstacleHeight + 30) ||
+    birdBottom > (obstaclesNegHeight + obstacleHeight + gap -30)) &&
+    (obstaclesLeft > screenWidth/2 -30 && obstaclesLeft < screenWidth/2 + 30 )
+    )
+    || 
+    ((birdBottom < (obstaclesNegHeightTwo + obstacleHeight + 30) ||
+    birdBottom > (obstaclesNegHeightTwo + obstacleHeight + gap -30)) &&
+    (obstaclesLeftTwo > screenWidth/2 -30 && obstaclesLeftTwo < screenWidth/2 + 30 )
+    )
+    ) 
+    {
+    console.log('game over')
+    
+  }
+})
+
+
   return (
     <View style={styles.container}>
       <Bird
