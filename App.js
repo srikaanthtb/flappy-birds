@@ -10,6 +10,8 @@ export default function App() {
   const [birdBottom, setbirdBottom] = useState(screenHeight/2)
   const [obstaclesLeft, setObstaclesLeft] = useState(screenWidth)
   const [obstaclesLeftTwo, setObstaclesLeftTwo] = useState(screenWidth + screenWidth/2 + 30)
+  const [obstaclesNegHeight, setobstaclesNegHeight] = useState(0)
+  const [obstaclesNegHeightTwo, setobstaclesNegHeightTwo] = useState(0)
   const obstacleWidth = 60
   const obstacleHeight = 300
   const gap = 200
@@ -32,6 +34,8 @@ export default function App() {
  }, [birdBottom])
 console.log(birdBottom)
 
+//first obstacle
+
 useEffect(() => {
   if (obstaclesLeft > -obstacleWidth) {
     obstaclesLeftTimerId = setInterval(() => {
@@ -42,8 +46,11 @@ useEffect(() => {
     }
   } else{
     setObstaclesLeft(screenWidth)
+    setobstaclesNegHeight( - Math.random() * 100)
   }
 }, [obstaclesLeft])
+
+//second obstacle
 
 useEffect(() => {
   if (obstaclesLeftTwo > -obstacleWidth) {
@@ -55,6 +62,7 @@ useEffect(() => {
     }
   } else{
     setObstaclesLeftTwo(screenWidth)
+    setobstaclesNegHeightTwo( - Math.random() * 100)
   }
 }, [obstaclesLeftTwo])
 
@@ -68,6 +76,7 @@ useEffect(() => {
     color={'green'}
     obstacleWidth={obstacleWidth}
     obstacleHeight={obstacleHeight}
+    randomBottom={obstaclesNegHeight}
     gap={gap}
     obstaclesLeft={obstaclesLeft}
     />
@@ -75,6 +84,7 @@ useEffect(() => {
     color={'yellow'}
     obstacleWidth={obstacleWidth}
     obstacleHeight={obstacleHeight}
+    randomBottom={obstaclesNegHeightTwo}
     gap={gap}
     obstaclesLeft={obstaclesLeftTwo}
     />
