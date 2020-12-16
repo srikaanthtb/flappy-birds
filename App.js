@@ -12,6 +12,7 @@ export default function App() {
   const [obstaclesLeftTwo, setObstaclesLeftTwo] = useState(screenWidth + screenWidth/2 + 30)
   const [obstaclesNegHeight, setobstaclesNegHeight] = useState(0)
   const [obstaclesNegHeightTwo, setobstaclesNegHeightTwo] = useState(0)
+  const [score, setScore] = useState(0)
   const obstacleWidth = 60
   const obstacleHeight = 300
   const gap = 200
@@ -56,6 +57,7 @@ useEffect(() => {
   } else{
     setObstaclesLeft(screenWidth)
     setobstaclesNegHeight( - Math.random() * 100)
+    setScore(score => score + 1)
   }
 }, [obstaclesLeft])
 
@@ -72,6 +74,7 @@ useEffect(() => {
   } else{
     setObstaclesLeftTwo(screenWidth)
     setobstaclesNegHeightTwo( - Math.random() * 100)
+    setScore(score => score + 1)
   }
 }, [obstaclesLeftTwo])
 
@@ -109,6 +112,7 @@ const gameOver = () => {
   return (
     <TouchableWithoutFeedback onPress={jump}>
     <View style={styles.container}>
+      {isGameOver && <Text>{score}</Text>}
       <Bird
         birdBottom={birdBottom}
         birdLeft={birdLeft}
