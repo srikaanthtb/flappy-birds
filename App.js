@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Dimensions, StyleSheet, Text, View, } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import Bird from './components/Bird'
 import Obstacles from './components/Obstacles';
 export default function App() {
@@ -16,6 +16,7 @@ export default function App() {
   const obstacleHeight = 300
   const gap = 200
   const gravity = 3
+  const [isGameOver ,setIsGameOver] = useState(false)
   let gameTimerId
   let obstaclesLeftTimerId
   let obstaclesLeftTimerIdTwo
@@ -33,6 +34,14 @@ export default function App() {
     }
  }, [birdBottom])
 console.log(birdBottom)
+
+
+const jump = () => {
+  if (!isGameOver && (birdBottom < screenHeight)){
+    setbirdBottom(birdBottom => birdBottom + 50)
+    console.log('jumped')
+  }
+}
 
 //first obstacle
 
@@ -86,6 +95,7 @@ useEffect(() => {
     {
     console.log('game over')
     gameOver()
+    
   }
 })
 
@@ -93,9 +103,11 @@ const gameOver = () => {
   clearInterval(gameTimerId)
   clearInterval(obstaclesLeftTimerId)
   clearInterval(obstaclesLeftTimerIdTwo)
+  setIsGameOver(true)
 }
 
   return (
+    <TouchableWithoutFeedback onPress={jump}>
     <View style={styles.container}>
       <Bird
         birdBottom={birdBottom}
@@ -118,7 +130,7 @@ const gameOver = () => {
     obstaclesLeft={obstaclesLeftTwo}
     />
     </View>
-
+    </TouchableWithoutFeedback>
   );
 }
 
