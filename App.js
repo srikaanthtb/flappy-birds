@@ -23,7 +23,7 @@ export default function App() {
  useEffect(() => {
   if( birdBottom > 0){
     gameTimerId = setInterval(() => {
-      setbirdBottom(birdBottom => birdBottom - 3)
+      setbirdBottom(birdBottom => birdBottom - gravity)
      }, 30)
 
      return () => {
@@ -85,10 +85,15 @@ useEffect(() => {
     ) 
     {
     console.log('game over')
-    
+    gameOver()
   }
 })
 
+const gameOver = () => {
+  clearInterval(gameTimerId)
+  clearInterval(obstaclesLeftTimerId)
+  clearInterval(obstaclesLeftTimerIdTwo)
+}
 
   return (
     <View style={styles.container}>
