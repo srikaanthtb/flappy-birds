@@ -16,7 +16,7 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.23.3"
+    "@babel/core": "~7.23.5"
   },
   "private": true
 }
