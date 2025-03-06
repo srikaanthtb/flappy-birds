@@ -10,7 +10,7 @@
   "dependencies": {
     "expo": "~52.0.37",
     "expo-status-bar": "~2.0.1",
-    "react": "16.13.1",
+    "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-web": "~0.19.13"
