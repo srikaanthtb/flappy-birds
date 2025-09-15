@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "expo": "~53.0.19",
-    "expo-status-bar": "~2.0.1",
+    "expo-status-bar": "~3.0.8",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
